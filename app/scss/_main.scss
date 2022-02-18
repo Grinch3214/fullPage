@@ -1,0 +1,227 @@
+.wrapper {
+    min-height: 100%;
+}
+.fullpage {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    // .page__wrapper
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    // .page__screen
+
+    &__screen {
+    }
+}
+.screen {
+    flex: 1 0 100%;
+    position: relative;
+    // .screen__content
+
+    &__content {
+        padding-top: 80px;
+        padding-bottom: 20px;
+        position: relative;
+        z-index: 2;
+        height: 100%;
+    }
+
+    &__container {
+
+        position: relative;
+        z-index: 5;
+        height: calc(100% - 80px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    &__body {
+        padding-left: 105px;
+        max-width: 588px;
+        color: #fff;
+    }
+
+    // .screen__title
+
+    &__title {
+        margin-bottom: 20px;
+    }
+
+    // .screen__text
+
+    &__text {
+        line-height: 25px;
+        margin-bottom: 40px;
+    }
+
+    // .screen__button
+
+    &__button {
+    }
+
+    // .screen__button-link
+
+    &__button-link {
+    }
+
+    // .screen__image
+
+    &__image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,1) 16%, transparent 60%);
+        }
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+        }
+    }
+}
+
+.lastscreen {
+    font-family: 'Montserrat', sans-serif;
+    background: #000;
+    color: #fff;
+    // .lastscreen__container
+
+    &__container {
+        display: block;
+        margin-top: 151px;
+    }
+
+    // .lastscreen__team
+
+    &__team {
+        margin-bottom: 150px;
+        padding-left: 105px;
+    }
+
+    // .lastscreen__team-title
+
+    &__team-title, &__contacts-title {
+        margin-bottom: 40px;
+    }
+
+    &__flexcontainer {
+        display: flex;
+    }
+    // .lastscreen__inner
+
+    &__inner {
+        margin-right: 100px;
+        position: relative;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    // .lastscreen__inner-name
+
+    &__inner-name, &__contacts-name {
+        font-weight: 900;
+        font-size: 24px;
+        line-height: 29.26px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    // .lastscreen__inner-block
+
+    &__inner-block {
+        display: flex;
+    }
+
+    // .lastscreen__inner-block--prof
+
+    &__inner-block--prof {
+        position: relative;
+        &:first-child {
+            margin-right: 40px;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: -20px;
+                opacity: 20%;
+                width: 1px;
+                height: 100%;
+                background: #fff;
+            }
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        p + p {
+            margin-bottom: 0;
+        }
+    }
+
+    // .lastscreen__text
+
+    &__text {
+        margin-bottom: 15px;
+    }
+
+    // .lastscreen__contacts
+
+    &__contacts {
+        padding-left: 105px;
+        .lastscreen__flexcontainer {
+            display: inline-flex;
+            flex-direction: column;
+        }
+    }
+
+    // .lastscreen__contacts-title
+
+    &__contacts-title {
+    }
+
+    // .lastscreen__contacts-name
+
+    &__contacts-name {
+    }
+
+    // .lastscreen__contacts-mail
+
+    &__contacts-mail {
+        margin-bottom: 15px;
+        color: #9AAAE1;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    // .lastscreen__contacts-tel
+
+    &__contacts-tel {
+        margin-bottom: 50px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+}
+

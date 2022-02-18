@@ -1,0 +1,58 @@
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000;
+    background: #ccc;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        max-width: 708px;
+    }
+    @media (min-width: 992px) and (max-width: 1199.98px) {
+        max-width: 920px;
+    }
+    @media (min-width: 1200px) and (max-width: 1365.98px) {
+        max-width: 1140px;
+    }
+    @media (min-width: 1366px) and (max-width: 1919.98px) {
+        max-width: 1280px;
+    }
+    @media screen and (min-width: 1920px) {
+        max-width: 1750px;
+    }
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    line-height: 48.76px;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+}
+.button-link {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24.38px;
+    padding: 18px 60px;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px solid #fff;
+    @media (min-width: 1366px) {
+        padding: 18px 60px;
+    }
+}

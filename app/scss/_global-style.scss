@@ -14,7 +14,7 @@ body {
 
 .container {
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 20px;
     width: 100%;
     @media (min-width: 768px) and (max-width: 991.98px) {
         max-width: 708px;
@@ -35,24 +35,33 @@ body {
 
 .title {
     font-family: 'Montserrat', sans-serif;
-    font-size: 40px;
-    line-height: 48.76px;
+    font-size: 26px;
+    line-height: 31.69px;
     font-weight: 900;
     color: #fff;
     text-transform: uppercase;
+    @media screen and (min-width: 768px) {
+        font-size: 40px;
+        line-height: 48.76px;
+    }
 }
 .button-link {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
-    font-size: 20px;
-    line-height: 24.38px;
-    padding: 18px 60px;
+    font-size: 16px;
+    line-height: 19.5px;
+    padding: 9px 23px;
     color: #fff;
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
     border: 1px solid #fff;
-    @media (min-width: 1366px) {
+    @media screen and (min-width: 768px) {
+        font-size: 20px;
+        line-height: 24.38px;
+        padding: 18px 60px;
+    }
+    @media screen and (min-width: 1366px) {
         padding: 18px 60px;
     }
 }

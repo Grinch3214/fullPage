@@ -24,15 +24,29 @@ body {
     flex-direction: column;
 }
 .main {
-    padding-top: 170px;
+    padding-top: 75px;
     flex-grow: 1;
     color: $primary-color-text;
     background: #fff;
+    @media screen and (min-width: 768px) {
+        padding-top: 107px;
+    }
+    @media screen and (min-width: 1366px) {
+        padding-top: 125px;
+    }
+    @media screen and (min-width: 1920px) {
+        padding-top: 170px;
+    }
 }
 .subcontainer {
-    max-width: 83.333%;
-    margin: 0 auto;
-    padding: 0 15px;
+    max-width: unset;
+    margin: 0;
+    padding: 0;
+    @media screen and (min-width: 768px) {
+        max-width: 83.333%;
+        margin: 0 auto;
+        // padding: 0 15px;
+    }
 }
 
 .container {
@@ -72,6 +86,26 @@ body {
         line-height: 48.46px;
     }
 }
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17.07px;
+    color: $title-color-text;
+    @media screen and (min-width: 768px) {
+        font-size: 18px;
+        line-height: 21.29px;
+    }
+    @media screen and (min-width: 1366px) {
+        line-height: 21.94px;
+    }
+    @media screen and (min-width: 1920px) {
+        font-size: 26px;
+        line-height: 31.69px;
+    }
+}
+
 .button-link {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;

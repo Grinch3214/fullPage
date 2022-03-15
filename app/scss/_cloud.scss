@@ -1,0 +1,219 @@
+.cloud {
+  padding: 31px 0 26px;
+  @media screen and (min-width: 768px) {
+    padding: 74px 0 72px;
+  }
+  @media screen and (min-width: 1366px) {
+    padding: 51px 0 48px;
+  }
+  @media screen and (min-width: 1920px) {
+    padding: 80px 0 100px;
+  }
+  // .cloud__title
+
+  &__title {
+    color: $title-color-text;
+    text-align: center;
+  }
+
+  // .cloud__inner
+
+  &__inner {
+    @media screen and (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 34px;
+    }
+    @media screen and (min-width: 1920px) {
+      margin-top: 65px;
+      align-items: center;
+    }
+  }
+
+  // .cloud__multipurpose
+
+  &__multipurpose {
+    margin-top: 21px;
+    @media screen and (min-width: 768px) {
+      margin-top: 0;
+      flex: 0 0 47%;
+    }
+    @media screen and (min-width: 1366px) {
+      flex: 0 0 45%;
+    }
+    @media screen and (min-width: 1920px) {
+      height: 100%;
+      flex: 0 0 50%;
+    }
+  }
+
+  // .cloud__multipurpose-title
+
+  &__multipurpose-title, &__key-title  {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: $title-color-text;
+    @media screen and (min-width: 768px) {
+      font-size: 16px;
+      line-height: 19.5px;
+    }
+    @media screen and (min-width: 1366px) {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    @media screen and (min-width: 1920px) {
+      font-size: 26px;
+      line-height: 34px;
+    }
+  }
+
+  // .cloud__list
+
+  &__list {
+    @media screen and (min-width: 768px) {
+      margin-top: 19px;
+    }
+    @media screen and (min-width: 1366px) {
+      margin-top: 16px;
+    }
+    @media screen and (min-width: 1920px) {
+      margin-top: 50px;
+    }
+  }
+
+  // .cloud__item
+
+  &__item {
+    position: relative;
+    margin-top: 13px;
+    padding-left: 25px;
+    font-size: 12px;
+    line-height: 16px;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 3px;
+      left: 0;
+      background: url('../images/dots-mini.svg') no-repeat;
+    }
+    @media screen and (min-width: 768px) {
+      margin-top: 15px;
+      padding-left: 35px;
+      font-size: 14px;
+      line-height: 18px;
+      &::before {
+        width: 16px;
+        height: 16px;
+        background: url('../images/dots_list.svg') no-repeat;
+      }
+    }
+    @media screen and (min-width: 1366px) {
+      margin-top: 18px;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    @media screen and (min-width: 1920px) {
+      font-size: 20px;
+      line-height: 25px;
+      &:nth-child(3) {
+        margin: 50px 0 46px;
+      }
+    }
+  }
+
+  &__info {
+    display: none;
+    @media screen and (min-width: 1366px) {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px;
+      color: $title-color-text;
+      margin-top: 27px;
+    }
+    @media screen and (min-width: 1920px) {
+      margin-top: 50px;
+      font-size: 20px;
+      line-height: 25px;
+      max-width: 610px;
+    }
+  }
+
+  // .cloud__key
+
+  &__key {
+    margin-top: 15px;
+    @media screen and (min-width: 768px) {
+      margin-top: 0;
+      flex: 0 0 47%;
+    }
+    @media screen and (min-width: 1920px) {
+      height: 100%;
+      flex: 0 0 36%;
+    }
+  }
+
+  // .cloud__key-title
+
+  &__key-title {
+  }
+
+  // .cloud__advantage
+
+  &__advantage {
+    color: #fff;
+    margin-top: 13px;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: 768px) {
+      margin-top: 23px;
+    }
+    @media screen and (min-width: 1920px) {
+      margin-top: 39px;
+    }
+  }
+
+  // .cloud__advantage-list
+
+  &__advantage-list {
+    margin-bottom: 5px;
+    height: 100%;
+    background: #3B445E;
+    padding: 8px 35px 7px 14px;
+    min-height: 63px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    @media screen and (min-width: 768px) {
+      min-height: 60px;
+      padding: 7px 12px 5px 15px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    @media screen and (min-width: 1920px) {
+      min-height: 85px;
+      margin-bottom: 14px;
+      padding: 0px 32px 0px 30px;
+      font-size: 17px;
+      line-height: 24px;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: $title-color-text;
+      }
+    }
+  }
+}

@@ -1,13 +1,13 @@
 const burgerButton = document.querySelector('.header__burger');
 const headerSection = document.querySelector('.header');
 const menuLinks = document.querySelectorAll('.header__navigation-item');
-const headerContainer = document.querySelector('.header__container')
+const headerContainer = document.querySelector('.header__container');
 
 let fullpage = new Swiper('.fullpage', {
     //my classes
     wrapperClass: 'fullpage__wrapper',
     slideClass: 'fullpage__screen',
-
+    // ............. //
     direction: "vertical",
     slidesPerView: 'auto',
 
@@ -38,7 +38,20 @@ fullpage.on('slideChange', function () {
     } else {
         headerContainer.classList.remove('show')
     }
-});
+}); // це справжнiй костиль йопта
+
+const contactUsLink = document.querySelectorAll('.contact-us');
+let lastOfSlider = fullpage.slides.length;
+
+(function() {
+    contactUsLink.forEach((elem) => {
+        elem.addEventListener('click', function(event) {
+            event.preventDefault();
+            
+            fullpage.slideTo(lastOfSlider,400,lastOfSlider);
+        });
+    })
+})();
 
 
 // (function() {

@@ -89,7 +89,7 @@ let anotherClickToContact = document.querySelectorAll('.second-contact');
 })();
 
 (function() {
-    if(sessionStorage.clickTo) {
+    if(window.sessionStorage.clickTo) {
         fullpage.slideTo(lastOfSlider,400,lastOfSlider);
         window.sessionStorage.clear('clickTo');
     }

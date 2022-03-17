@@ -82,16 +82,17 @@ let anotherClickToContact = document.querySelectorAll('.second-contact');
     anotherClickToContact.forEach((el) => {
         el.addEventListener('click', function(event) {
             event.preventDefault();
-            window.sessionStorage.setItem('clickTo', 'trueClick');
+            // window.sessionStorage.setItem('clickTo', 'trueClick');
+            window.localStorage.setItem('clickTo', true);
             location.href='/'
         })
     })
 })();
 
 (function() {
-    if(window.sessionStorage.clickTo) {
+    if(window.localStorage.clickTo) {
         fullpage.slideTo(lastOfSlider,400,lastOfSlider);
-        window.sessionStorage.clear('clickTo');
+        window.localStorage.clear('clickTo');
     }
 })();
 

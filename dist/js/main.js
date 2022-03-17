@@ -2,22 +2,29 @@ const burgerButton = document.querySelector('.header__burger');
 const headerSection = document.querySelector('.header');
 const menuLinks = document.querySelectorAll('.header__navigation-item');
 const headerContainer = document.querySelector('.header__container');
+const preloader = document.getElementById('preloader');
 
-window.onload = function() {
-    let preloader = document.getElementById('preloader');
-    setTimeout(() => 
-    preloader.style = `
-      opacity: 0;
-      transition: 1s;
-    `
-    ,1000);
-    
-    setTimeout(() => preloader.style.display = 'none', 2000);
-    // preloader.style.display = 'none';
+//? ---- Preload on main page ----
+if (preloader) {
+    window.onload = function() {
+        if (!window.localStorage.getItem('preloaderIsShown')) {
+            preloader.style = `
+            visibility: visible;
+            `;
+            setTimeout(() => preloader.style = `
+                opacity: 0;
+                transition: 0.8s;
+                visibility: hidden;
+            `, 800);
+            window.localStorage.setItem('preloaderIsShown', true);
+        } else {
+            preloader.style.display = 'none'
+        }
+    };
 };
 
 let fullpage = new Swiper('.fullpage', {
-    //my classes
+    //! my classes
     wrapperClass: 'fullpage__wrapper',
     slideClass: 'fullpage__screen',
     // ............. //
@@ -45,14 +52,17 @@ let fullpage = new Swiper('.fullpage', {
     // allowTouchMove: false,
 
 });
+
+//? ---- add black line on header after 4 screen ----
 fullpage.on('slideChange', function () {
-    if(this.activeIndex === 4) {
+    if(this.activeIndex >= 4) {
         headerContainer.classList.add('show')
     } else {
         headerContainer.classList.remove('show')
     }
 }); // це справжнiй костиль йопта
 
+//? ---- Click on button Contact Us -- main page ----
 const contactUsLink = document.querySelectorAll('.contact-us');
 let lastOfSlider = fullpage.slides.length;
 
@@ -60,13 +70,32 @@ let lastOfSlider = fullpage.slides.length;
     contactUsLink.forEach((elem) => {
         elem.addEventListener('click', function(event) {
             event.preventDefault();
-            
             fullpage.slideTo(lastOfSlider,400,lastOfSlider);
         });
     })
 })();
 
+//? ---- Click to contact on other pages of the site ----
+let anotherClickToContact = document.querySelectorAll('.second-contact');
 
+(function() {
+    anotherClickToContact.forEach((el) => {
+        el.addEventListener('click', function(event) {
+            event.preventDefault();
+            sessionStorage.setItem('clickTo', 'trueClick');
+            location.href='/'
+        })
+    })
+})();
+
+(function() {
+    if(sessionStorage.clickTo) {
+        fullpage.slideTo(lastOfSlider,400,lastOfSlider);
+        sessionStorage.clear('clickTo');
+    }
+})();
+
+//! swiper destroy
 // (function() {
 //     'use strict';
   

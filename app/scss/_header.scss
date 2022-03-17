@@ -115,15 +115,16 @@
         align-items: center;
         font-weight: 500;
         font-size: 16px;
-        line-height: 18.75px;
+        line-height: 9.55px;
         text-transform: uppercase;
+        align-self: center;
         @media screen and (min-width: 768px) {
             // padding-left: 15px;
             align-items: flex-end;
             padding-top: 20px;
         }
         @media screen and (min-width: 1920px) {
-            line-height: 12px;
+            // line-height: 12px;
         }
     }
 

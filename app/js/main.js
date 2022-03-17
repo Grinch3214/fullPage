@@ -82,7 +82,7 @@ let anotherClickToContact = document.querySelectorAll('.second-contact');
     anotherClickToContact.forEach((el) => {
         el.addEventListener('click', function(event) {
             event.preventDefault();
-            sessionStorage.setItem('clickTo', 'trueClick');
+            window.sessionStorage.setItem('clickTo', 'trueClick');
             location.href='/'
         })
     })
@@ -91,7 +91,7 @@ let anotherClickToContact = document.querySelectorAll('.second-contact');
 (function() {
     if(sessionStorage.clickTo) {
         fullpage.slideTo(lastOfSlider,400,lastOfSlider);
-        sessionStorage.clear('clickTo');
+        window.sessionStorage.clear('clickTo');
     }
 })();
 

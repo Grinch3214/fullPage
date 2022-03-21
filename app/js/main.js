@@ -29,7 +29,7 @@ let fullpage = new Swiper('.fullpage', {
     slideClass: 'fullpage__screen',
     // ............. //
     direction: "vertical",
-    slidesPerView: 'auto',
+    slidesPerView: "auto",
 
     keyboard: {
         enabled: true,
@@ -42,25 +42,24 @@ let fullpage = new Swiper('.fullpage', {
     },
 
     watchOverflow: true,
+		speed: 400,
 
-    speed: 800,
-
-    observer: true,
-    observeParents: true,
-    observeSlideChildren: true,
+    // observer: true,
+    // observeParents: true,
+    // observeSlideChildren: true,
 
     // allowTouchMove: false,
 
 });
 
 //? ---- add black line on header after 4 screen ----
-fullpage.on('slideChange', function () {
-    if(this.activeIndex >= 4) {
-        headerContainer.classList.add('show')
-    } else {
-        headerContainer.classList.remove('show')
-    }
-}); // це справжнiй костиль йопта
+// fullpage.on('slideChange', function () {
+//     if(this.activeIndex == 4) {
+//         headerContainer.classList.add('show')
+//     } else {
+//         headerContainer.classList.remove('show')
+//     }
+// }); // це справжнiй костиль йопта
 
 //? ---- Click on button Contact Us -- main page ----
 const contactUsLink = document.querySelectorAll('.contact-us');
@@ -166,3 +165,63 @@ let anotherClickToContact = document.querySelectorAll('.second-contact');
     }
 })();
 
+//! for fucking IOS
+
+const breakpoint = window.matchMedia( '(min-width:640px)' );
+console.log(breakpoint.matches);
+(function() {
+	if(!breakpoint.matches) {
+		function easeOut(currentTime, startValue, changeValue, duration) {
+			currentTime /= duration;
+			return -changeValue * currentTime * (currentTime - 2) + startValue;
+		}
+		
+		function getTransitionSimulator(ele, distance, duration, callback) {
+			let handle;
+			let resolve;
+			return () => {
+					let promise = new Promise(res => {
+							resolve = res;
+					});
+					let startTime = performance.now();
+					cancelAnimationFrame(handle);
+					function _animation() {
+							let current = performance.now();
+							// distance to move this frame
+							let disVal = easeOut(current - startTime, 0, distance, duration);
+		
+							callback(ele, disVal);
+							if ((current - startTime) / duration < 1) {
+									handle = requestAnimationFrame(_animation);
+							} else {
+									cancelAnimationFrame(handle);
+									resolve();
+							}
+					}
+					handle = requestAnimationFrame(_animation);
+					return promise;
+			};
+		}
+		
+		fullpage.on('setTranslate', (swiper, targetTransVal) => {
+			const wrapper = swiper.$wrapperEl[0]; // wrapper element
+			// when use transition to do animation
+			if (wrapper.style.transitionDuration !== '0ms') {
+					// get origin translate value
+					const curTransVal = swiper.getTranslate();
+					console.log(curTransVal)
+					// cancel the animation of transition
+					wrapper.style.transitionDuration = '';
+					wrapper.style.transform = `translate3d(0px, ${curTransVal}px, 0px)`;
+		
+					// use requestFrameAnimation to do animation my self
+					const transSimulator = getTransitionSimulator(wrapper, targetTransVal - curTransVal, 300, (el, val) => {
+							el.style.transform = `translate3d(0px, ${curTransVal + val}px, 0px)`;
+					});
+					transSimulator();
+					// End the transition, call the callback (simulate the internal implementation of Swiper)
+					// swiper.onSlideToWrapperTransitionEnd.call(wrapper, { target: wrapper });
+			}
+		});
+	}
+})();

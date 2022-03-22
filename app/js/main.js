@@ -168,7 +168,7 @@ let anotherClickToContact = document.querySelectorAll('.second-contact');
 //! for fucking IOS
 
 const breakpoint = window.matchMedia( '(min-width:640px)' );
-console.log(breakpoint.matches);
+
 (function() {
 	if(!breakpoint.matches) {
 		function easeOut(currentTime, startValue, changeValue, duration) {
@@ -209,7 +209,6 @@ console.log(breakpoint.matches);
 			if (wrapper.style.transitionDuration !== '0ms') {
 					// get origin translate value
 					const curTransVal = swiper.getTranslate();
-					console.log(curTransVal)
 					// cancel the animation of transition
 					wrapper.style.transitionDuration = '';
 					wrapper.style.transform = `translate3d(0px, ${curTransVal}px, 0px)`;
